@@ -1,0 +1,44 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interns at {{ location }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Interns at {{ location }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Intern ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Team ID</th>
+                <th>Joining Date</th>
+                <th>Manager ID</th>
+                <th>Email ID</th>
+                <th>Phone No</th>
+                <th>Stipend</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for intern in interns %}
+                <tr>
+                    <td>{{ intern.InternID }}</td>
+                    <td>{{ intern.FirstName }}</td>
+                    <td>{{ intern.LastName }}</td>
+                    <td>{{ intern.TeamID }}</td>
+                    <td>{{ intern.JoiningDate }}</td>
+                    <td>{{ intern.ManagerID }}</td>
+                    <td>{{ intern.EmailID }}</td>
+                    <td>{{ intern.PhoneNo }}</td>
+                    <td>{{ intern.Stipend }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'front' %}">Back to locations</a>
+</body>
+</html>

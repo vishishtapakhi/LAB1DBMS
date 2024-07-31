@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header class="site">
+        <div style="display:flex;">
+            <div style="text-align:left; width:600px; display:flex; align-item:center; padding-top:10px; padding-left:8px"><a href="front" class="back-button"></a></div>
+            <div ><h1>LAB1 DEMO</h1></div>
+        </div>
+        
+        
+    </header>
+    <h3>This template is return  by Django Server</h3>
+    <div class="buttoncontainer">
+        <a href="{% url 'intern_list' %}?location=Bangalore" class="btn btn-location">Bangalore</a>
+        <a href="{% url 'intern_list' %}?location=Delhi" class="btn btn-location">Delhi</a>
+        <a href="{% url 'intern_list' %}?location=Hyderabad" class="btn btn-location">Hyderabad</a>
+        <a href="{% url 'intern_list' %}?location=Noida" class="btn btn-location">Noida</a>
+        <a href="{% url 'intern_list' %}?location=Mumbai" class="btn btn-location">Mumbai</a>
+    </div>
+    <br><br>
+    
+    <form
+        class="form-inline my-2 my-lg-0"
+        method="POST"
+        action="{%url 'searchintern' %}"
+    >
+        {%csrf_token%}
+       
+        <div class="inp">
+        <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        name="searched"
+        />
+       <button class="searchbtn" type="submit">
+        Search
+        </button></div>
+    </form>
+    <br><br>
+        <table>
+            <thead>
+            <tr>
+                <th>InternID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>TeamID</th>
+                <th>Joining Date</th>
+                <th>ManagerID</th>
+                <th>EmailID</th>
+                <th>Mobile No.</th>
+                <th>Location</th>
+                <th>Stipend</th>
+            </tr>
+        </thead>
+
+        {% for intern in interns %}
+            <tr>
+                <td>{{ intern.InternID }}</td>
+                <td>{{ intern.FirstName }}</td>
+                <td>{{ intern.LastName }}</td>
+                <td>{{ intern.TeamID }}</td>
+                <td>{{ intern.JoiningDate }}</td>
+                <td>{{ intern.ManagerID }}</td>
+                <td>{{ intern.EmailID }}</td>
+                <td>{{ intern.PhoneNo }}</td>
+                <td>{{ intern.Location }}</td>
+                <td>{{ intern.Stipend }}</td>
+            </tr>
+            {% empty %}
+        <tr>
+            <td colspan="10">No interns available.</td>
+        </tr>
+        {% endfor %}
+
+        </table>
+    </body>
+    
+
+</html>
