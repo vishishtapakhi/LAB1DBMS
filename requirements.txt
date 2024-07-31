@@ -1,0 +1,2 @@
+source LABDATA.sql;
+mysql -u root -p xyzcompany < ~/LABDATA.sql

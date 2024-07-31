@@ -13,4 +13,5 @@ class xyzcompany(models.Model):
     Location = models.CharField(max_length=255)
     Stipend = models.BigIntegerField()
     
-    
+    class Meta:
+        db_table = 'company_xyzcompany'

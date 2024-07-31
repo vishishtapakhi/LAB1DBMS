@@ -36,16 +36,17 @@ def intern_list_view(request):
     return render(request, 'index.html', {'interns': interns})
 
 def search_intern(request):
-    found=False
     if request.method == "POST":
-        searched = request.POST['searched']
+        searched = request.POST.get('searched', '')
         interns = xyzcompany.objects.filter(Q(InternID=searched) | Q(ManagerID=searched) | Q(TeamID=searched))
-       
-        
-        return render(request,'index.html',{'searched':searched,'interns':interns,'found':found})
-        
-    else:
-        return render(request,'index.html',{})
+        found = interns.exists()
+        return render(request, 'index.html', {'searched': searched, 'interns': interns, 'found': found})
+    return render(request, 'index.html', {})
+
+
+def location_page_view(request, location):
+    interns = xyzcompany.objects.filter(Location=location)
+    return render(request, 'location_page.html', {'interns': interns, 'location': location})
 # @login_required
 # def search_intern(request):
     

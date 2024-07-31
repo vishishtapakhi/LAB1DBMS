@@ -1018,4 +1018,3 @@ FROM (SELECT DISTINCT * FROM company_xyzcompany) AS unique_rows;
 SELECT *
 FROM company_xyzcompany;
 
-DROP TABLE company_xyzcompany;

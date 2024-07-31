@@ -19,11 +19,11 @@
     </header>
     <h3>This template is return  by Django Server</h3>
     <div class="buttoncontainer">
-        <a href="{% url 'intern_list' %}?location=Bangalore" class="btn btn-location">Bangalore</a>
-        <a href="{% url 'intern_list' %}?location=Delhi" class="btn btn-location">Delhi</a>
-        <a href="{% url 'intern_list' %}?location=Hyderabad" class="btn btn-location">Hyderabad</a>
-        <a href="{% url 'intern_list' %}?location=Noida" class="btn btn-location">Noida</a>
-        <a href="{% url 'intern_list' %}?location=Mumbai" class="btn btn-location">Mumbai</a>
+        <a href="{% url 'location_page' 'Bangalore' %}" class="btn btn-location">Bangalore</a>
+        <a href="{% url 'location_page' 'Delhi' %}" class="btn btn-location">Delhi</a>
+        <a href="{% url 'location_page' 'Hyderabad' %}" class="btn btn-location">Hyderabad</a>
+        <a href="{% url 'location_page' 'Noida' %}" class="btn btn-location">Noida</a>
+        <a href="{% url 'location_page' 'Mumbai' %}" class="btn btn-location">Mumbai</a>    
     </div>
     <br><br>
     
