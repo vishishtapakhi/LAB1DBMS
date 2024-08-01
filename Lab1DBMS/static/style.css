@@ -39,6 +39,12 @@ caption {
     color: #6d4c41;
 }
 
+.table-container{
+    max-height: 500px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
 table {
     width: 100%;
     border-style: groove;
